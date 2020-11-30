@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RSA</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
@@ -22,21 +23,21 @@
         <h2>Генерация ключей</h2>
         <form method="POST" id="key_generation_form" action="">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">Введите номер по списку</label>
+                        <label>Введите номер по списку</label>
                         <input type="number" min="1" max="25" class="form-control" name="number">
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">Введите фамилию</label>
+                        <label>Введите фамилию</label>
                         <input type="text" class="form-control" name="last_name">
                     </div>
                 </div>
             </div>
             <div id="result_of_generation"></div>
-            <button type="submit" class="btn btn-primary" id="generate_btn">Сгенерировать ключи</button>
+            <button type="submit" class="btn btn-primary center" id="generate_btn">Сгенерировать ключи</button>
         </form>
     </div>
 
@@ -47,26 +48,26 @@
 
     <div class="row">
         <!--Шифрование/дешифрование-->
-        <div class="col-sm-6">
+        <div class="col-md-6">
             <div class="encrypt">
                 <h2>Кодирование</h2>
                 <form method="POST" id="encrypt_form" action="">
 
                     <div class="form-group">
-                        <label for="">Введите слово для шифрования</label>
+                        <label>Введите слово для шифрования</label>
                         <input type="text" class="form-control" name="data">
                     </div>
                     <p>Введите открытый ключ</p>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Введите e</label>
+                                <label>Введите e</label>
                                 <input type="text" class="form-control" name="e">
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Введите n</label>
+                                <label>Введите n</label>
                                 <input type="text" class="form-control" name="n">
                             </div>
                         </div>
@@ -78,26 +79,26 @@
             </div>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-md-6">
             <div class="decrypt">
                 <h2>Декодирование</h2>
                 <form method="POST" id="decrypt_form" action="">
 
                     <div class="form-group">
-                        <label for="">Введите закодированную последовательность через запятую</label>
+                        <label>Введите закодированную последовательность через запятую</label>
                         <input type="text" class="form-control" name="data">
                     </div>
                     <p>Введите секретный ключ</p>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Введите d</label>
+                                <label>Введите d</label>
                                 <input type="text" class="form-control" name="d">
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Введите n</label>
+                                <label>Введите n</label>
                                 <input type="text" class="form-control" name="n">
                             </div>
                         </div>
