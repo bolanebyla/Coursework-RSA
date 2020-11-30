@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>RSA</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+<div class="container">
+    <br>
+    <h1>RSA encoder/decoder</h1>
+    <br>
+
+    <!--Генерация ключей-->
+    <div class="key_generation">
+        <h2>Генерация ключей</h2>
+        <form method="POST" id="key_generation_form" action="">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="">Введите номер по списку</label>
+                        <input type="number" min="1" max="25" class="form-control" name="number">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="">Введите фамилию</label>
+                        <input type="text" class="form-control" name="last_name">
+                    </div>
+                </div>
+            </div>
+            <div id="result_of_generation"></div>
+            <button type="submit" class="btn btn-primary" id="generate_btn">Сгенерировать ключи</button>
+        </form>
+    </div>
+
+
+    <br>
+    <br>
+
+
+    <div class="row">
+        <!--Шифрование/дешифрование-->
+        <div class="col-sm-6">
+            <div class="encrypt">
+                <h2>Кодирование</h2>
+                <form method="POST" id="encrypt_form" action="">
+
+                    <div class="form-group">
+                        <label for="">Введите слово для шифрования</label>
+                        <input type="text" class="form-control" name="data">
+                    </div>
+                    <p>Введите открытый ключ</p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Введите e</label>
+                                <input type="text" class="form-control" name="e">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Введите n</label>
+                                <input type="text" class="form-control" name="n">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="result_of_encrypt"></div>
+                    <button type="submit" class="btn btn-primary" id="encrypt_btn">Закодировать</button>
+                </form>
+                <br><br>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="decrypt">
+                <h2>Декодирование</h2>
+                <form method="POST" id="decrypt_form" action="">
+
+                    <div class="form-group">
+                        <label for="">Введите закодированную последовательность через запятую</label>
+                        <input type="text" class="form-control" name="data">
+                    </div>
+                    <p>Введите секретный ключ</p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Введите d</label>
+                                <input type="text" class="form-control" name="d">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Введите n</label>
+                                <input type="text" class="form-control" name="n">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="result_of_decrypt"></div>
+                    <button type="submit" class="btn btn-primary" id="decrypt_btn">Декодировать</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</html>
