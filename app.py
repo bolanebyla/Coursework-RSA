@@ -28,6 +28,7 @@ def encrypt():
     data = request.form.get('data')
     e = request.form.get('e')
     n = request.form.get('n')
+
     if not data or not e or not n:
         return 'Bad Request', 400
     if len(e) > 5 or len(n) > 5:
@@ -37,6 +38,7 @@ def encrypt():
         encrypted_data = RSA.encrypt(data=data, e=int(e), n=int(n))
     except Exception as e:
         return 'Bad Request', 400
+
     return {'encrypted_data': encrypted_data}
 
 
@@ -45,8 +47,13 @@ def decrypt():
     data = list(map(int, request.form.get('data').split(',')))
     d = request.form.get('d')
     n = request.form.get('n')
+
     if not data or not d or not n:
         return 'Bad Request', 400
+
+    if len(d) > 5 or len(n) > 5:
+        return 'Bad Request', 400
+
     try:
         decrypted_data = RSA.decrypt(data=data, d=int(d), n=int(n))
     except Exception as e:
