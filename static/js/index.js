@@ -44,7 +44,17 @@ function sendAjaxForm_generation(result_of_generation, key_generation_form, url)
             result = $.parseJSON(response);
 
             $('#result_of_generation').html(
-                '<h3>Открытый ключ</h3>e = ' + result.e + ' n = ' + result.n + '<br>' + '<h3>Секретный ключ</h3>d = ' + result.d + ' n = ' + result.n + '<br><br>');
+                '<h3>Открытый ключ</h3>e = ' + result.e + ' n = ' + result.n + '<br>'
+                + '<h3>Секретный ключ</h3>d = ' + result.d + ' n = ' + result.n + '<br><br>'
+            );
+
+            $('#result_of_generation_info').html(
+                '<b>Фамилия в числовой последоватеьности: </b>' + result.last_name_in_numeric_form + '<br>'
+                + '<b>Сумма: </b>' + result.sum_numeric_form + '<br>'
+                + '<b>Функция эйлера: </b>' + result.function_of_Euler + '<br>'
+                + '<br><br>'
+            )
+
         },
         error: function (response) { // Данные не отправлены
             $('#result_of_generation').html('Ошибка. Данные не сгенирированы.');
