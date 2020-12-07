@@ -42,6 +42,7 @@ function sendAjaxForm_generation(result_of_generation, key_generation_form, url)
         data: $("#" + key_generation_form).serialize(),  // Сеарилизуем объект
         success: function (response) { //Данные отправлены успешно
             result = $.parseJSON(response);
+            console.log(result)
 
             $('#result_of_generation').html(
                 '<h3>Открытый ключ</h3>e = ' + result.e + ' n = ' + result.n + '<br>'
@@ -51,7 +52,9 @@ function sendAjaxForm_generation(result_of_generation, key_generation_form, url)
             $('#result_of_generation_info').html(
                 '<b>Фамилия в числовой последоватеьности: </b>' + result.last_name_in_numeric_form + '<br>'
                 + '<b>Сумма: </b>' + result.sum_numeric_form + '<br>'
-                + '<b>Функция эйлера: </b>' + result.function_of_Euler + '<br>'
+                + '<b>Число p: </b>' + result.p + '<br>'
+                + '<b>Число q: </b>' + result.q + '<br>'
+                + '<b>Функция Эйлера: </b>' + result.function_of_Euler + '<br>'
                 + '<br><br>'
             )
 
