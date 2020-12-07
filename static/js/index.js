@@ -50,7 +50,7 @@ function sendAjaxForm_generation(result_of_generation, key_generation_form, url)
             );
 
             $('#result_of_generation_info').html(
-                '<b>Фамилия в числовой последоватеьности: </b>' + result.last_name_in_numeric_form + '<br>'
+                '<b>Фамилия в числовой последовательности: </b>' + result.last_name_in_numeric_form + '<br>'
                 + '<b>Сумма: </b>' + result.sum_numeric_form + '<br>'
                 + '<b>Число p: </b>' + result.p + '<br>'
                 + '<b>Число q: </b>' + result.q + '<br>'
