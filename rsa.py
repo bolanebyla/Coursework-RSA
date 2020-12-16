@@ -60,11 +60,6 @@ class RSA:
         """устанавливает значение q"""
         self.sum_numeric_form = sum(self.last_name_in_numeric_form)  # сумма фамилии в цифровой форме
 
-        # находим число меньше 100
-        while True:
-            if self.sum_numeric_form < 100:
-                break
-            self.sum_numeric_form -= 100
 
         # выбираем наиболее близкое значение q из таблицы простых чисел (table)
         min_diff = 500
