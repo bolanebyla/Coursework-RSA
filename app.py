@@ -16,6 +16,9 @@ def generate_values():
     last_name = request.form.get('last_name')
     if not number or not last_name:
         return 'Bad Request', 400
+
+    last_name = last_name.replace(' ', '')
+
     try:
         coder = RSA(number=int(number), last_name=last_name)
     except Exception as e:
